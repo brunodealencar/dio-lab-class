@@ -1,6 +1,16 @@
+/**
+ *  Array which contains all acceptable class types to be assigned to "Hero.class" property.
+ */
 const _heroClasses = ["WARRIOR", "MAGE", "MONK", "NINJA"];
+/**
+ *  Array which contains the damage types evoked for each "Hero.class". Its order is related to 
+ *  "_heroClasses" array. 
+ */
 const _damageTypePerClass = ["espada", "magia", "artes marciais", "shuriken"];
-
+/**
+ *  Constant that represents the default string to be assigned to "Hero.class" 
+ *  if the constructor entry has not matched any data from "_heroClasses" array.
+ */
 const DEFAULT_CLASS = "PEASANT";
 
 class Hero {
@@ -8,6 +18,12 @@ class Hero {
     age = 0;
     class = "";
 
+    /**
+     *  Constructor method to instantiate an object based on "Hero" class.
+     *  @param {string} name 
+     *  @param {int} age 
+     *  @param {string} classType 
+     */
     constructor(name, age, classType){
         this.name = name;
         this.age = age;
@@ -15,6 +31,9 @@ class Hero {
         this.class = (this.validateClassEntry(classType)) ? classType.toUpperCase() : DEFAULT_CLASS;
     };
 
+    /**
+     *  Method that displays a custom message on terminal depending on "Hero.class" entry.
+     */
     attack(){
         if(this.class !== DEFAULT_CLASS)
         {
@@ -26,6 +45,10 @@ class Hero {
         }
     };
 
+    /**
+     *  Method that returns a custom string value depeding on "Hero.class" entry.
+     *  @returns string value from "_damageTypePerClass" array.
+     */
     checkActionByClass(){
         let action;
 
@@ -41,6 +64,12 @@ class Hero {
         return action;
     };
 
+    /**
+     *  Methods that validates if the constructor entry for "Hero.class" is present on
+     *  "_heroClasses" array.
+     *  @param {string} entry 
+     *  @returns true || false
+     */
     validateClassEntry(entry){
         return _heroClasses.includes(entry.toUpperCase());
     };

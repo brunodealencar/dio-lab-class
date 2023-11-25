@@ -1,3 +1,4 @@
+//  Importing "Hero" class into main.js context <import enable through package.json> 
 import { Hero } from "./heroClass.js";
 
 let party = {
@@ -8,6 +9,7 @@ let party = {
     david: new Hero("David", 17, "wariOh")
 }
 
+//  Triggering "Hero.attack()" method for each instance in "party" object
 for(let member in party)
 {
     party[member].attack();
