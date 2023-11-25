@@ -26,7 +26,7 @@ class Hero {
      */
     constructor(name, age, classType){
         this.name = name;
-        this.age = age;
+        this.age = this.validateAgeEntry(age);
 
         this.class = (this.validateClassEntry(classType)) ? classType.toUpperCase() : DEFAULT_CLASS;
     };
@@ -73,6 +73,16 @@ class Hero {
     validateClassEntry(entry){
         return _heroClasses.includes(entry.toUpperCase());
     };
+
+    /**
+     *  Method that validates if the constructor entry for "Hero.age" is positive.
+     *  If not, it forces the value to be positive.
+     *  @param {int} age 
+     *  @returns parameter "age" as a positive int value.
+     */
+    validateAgeEntry(age){
+        return Math.abs(age);
+    }
 };
 
 export {Hero};
